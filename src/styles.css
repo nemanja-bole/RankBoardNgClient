@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+body {
+    padding: 0;
+    background-color: #eeeeee;
+    color: rgb(51, 51, 51)
+}
+
+.main-content
+{
+    padding-top: 20px;
+    flex: 1 0 auto; 
+}
+
+.forms-stt {
+    padding: 20px !important;
+    background-color: white;
+}
+
+/* styles for validation helpers */
+.field-validation-error, .form-validation-error, .field-validation-neutral, .field-validation-valid {
+    position: relative;
+    min-height: 18px;
+    display: block;
+    font-size: 12px;    
+}
+
+.field-validation-error, .form-validation-error{
+    color: #b94a48;
+}
+.field-validation-neutral {
+    color: rgb(51, 51, 51);
+}
+
+.field-validation-valid {
+    color: #50be46;
+}
+
+.form-validation-error {
+    font-size: 16px;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+/* input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+} */
+
+.logo-img {
+    max-height: 64px!important;
+    padding: 5px 0!important;
+}
+
+app-root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

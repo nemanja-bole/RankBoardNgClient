@@ -1,0 +1,62 @@
+<div class="row">
+  <form class="col s12 m8 l6 offset-l3 offset-m2 forms-stt z-depth-3" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <div class="row">
+      <div class="col s6 offset-s3 center-align">
+        <img class="responsive-img" src="/static/app/images/svea_logo_medium.png" alt="Svea Logo">
+      </div>
+    </div>
+
+    <div class="row" *ngIf="signUpForm.errors" >
+      <div class="col s12 form-validation-error">
+        Invalid sign up.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="inputFirstName">First Name</label>
+        <input formControlName="firstName" type="text" id="inputFirstName" name="inputFirstName">
+        <span class="field-validation-error" *ngIf="firstName.touched && firstName.invalid" >First name is required.</span>
+      </div>
+    </div>    
+    
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="inputLastName">Last Name</label>
+        <input formControlName="lastName" type="text" id="inputLastName" name="inputLastName">
+        <span class="field-validation-error" *ngIf="lastName.touched && lastName.invalid" >Last name is required.</span>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="inputEmail">Email address</label>
+        <input formControlName="email" type="email" id="inputEmail" name="inputEmail">
+        <span class="field-validation-neutral" *ngIf="email.pending">Checking availability...</span>
+        <span class="field-validation-error" *ngIf="email.touched && email.invalid" >
+          <span *ngIf="email.errors.required || email.errors.email || email.errors.pattern">You must provide valid email (example@svea.com).</span>
+          <span *ngIf="email.errors.shouldBeUnique">This email is already registred.</span>
+        </span>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="inputPassword">Password</label>
+        <input formControlName="password" type="password" id="inputPassword" name="inputPassword">
+        <span *ngIf="password.touched && password.invalid">
+          <span class="field-validation-error" *ngIf="password.errors.required" >Password is reqired.</span>
+          <span class="field-validation-error" *ngIf="password.errors.minlength" >Password must be at least 8 characters long.</span>
+        </span>
+      </div>
+    </div>
+    
+    <button class="btn waves-effect waves-light" type="submit" [disabled]="signUpForm.invalid || email.pending" >Sign up</button>
+
+  </form>
+
+  <p class="col s12 center-align">Already have account?
+    <a routerLink='/login'>Go to Login page</a>
+  </p>
+
+</div>
